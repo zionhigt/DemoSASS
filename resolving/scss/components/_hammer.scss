@@ -1,0 +1,23 @@
+$arm_hammer_size: 30px;
+.hammer
+{
+	position: absolute;
+	width: 10px;
+	height: $arm_hammer_size;
+	top: $arm_hammer_size * -1;
+	left: 49%;
+	background-color: $light_grey;
+
+	&::before
+	{
+		content: "";
+		display: block;
+		position: relative;
+		left: -16px;
+		width: 40px;
+		height: 10px;
+		border-radius: 30%;
+		background-color: $light_grey;
+		border: 1px solid $medium_grey;
+	}
+}

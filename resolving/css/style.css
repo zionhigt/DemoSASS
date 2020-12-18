@@ -3,6 +3,11 @@
     transform: rotate(540deg);
   }
 }
+@keyframes setAwake {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -26,21 +31,21 @@ body {
 .canvas::before, .canvas::after {
   content: "";
   display: block;
-  width: 200px;
+  width: 150px;
   height: 50px;
   border-radius: 50% 50% 0 0;
   position: absolute;
-  top: -30px;
+  top: -20px;
   background-color: #e0e0e0;
   border-bottom: 5px solid rgba(0, 0, 0, 0.15);
 }
 .canvas::before {
   transform: rotateZ(-30deg);
-  left: -10px;
+  left: -8px;
 }
 .canvas::after {
   transform: rotateZ(30deg);
-  right: -10px;
+  right: -8px;
 }
 
 .clock {
@@ -136,6 +141,29 @@ body {
   top: 65%;
   margin-left: 30%;
   border-radius: 30px;
+}
+.clock__needle--awake:hover {
+  animation: setAwake 0.5s ease-out forwards;
+}
+
+.hammer {
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  top: -30px;
+  left: 49%;
+  background-color: #e0e0e0;
+}
+.hammer::before {
+  content: "";
+  display: block;
+  position: relative;
+  left: -16px;
+  width: 40px;
+  height: 10px;
+  border-radius: 30%;
+  background-color: #e0e0e0;
+  border: 1px solid #cacaca;
 }
 
 /*# sourceMappingURL=style.css.map */

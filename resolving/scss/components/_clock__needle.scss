@@ -53,6 +53,7 @@
 		@include fluo();
 		transform-origin: center top;
 		transform: rotateZ(210deg);
+		@include setAwakeTrigger();
 
 	}
 }

@@ -1,0 +1,15 @@
+@keyframes setAwake
+{
+	100%
+	{
+		transform: rotateZ(360deg);
+	}
+}
+
+@mixin setAwakeTrigger()
+{
+	&:hover
+	{
+		animation: setAwake 0.5s ease-out forwards;
+	}
+}
