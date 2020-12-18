@@ -1,15 +1,48 @@
+// Not changing to the real hour, take the needle position on the clock, : 5 to 25 mins 
+$setting_needle: (
+	"seconde": 0,
+	"minute": 0,
+	"hour": 9
+	);
+
+@function getAngle($pos){
+	@return ((($pos + 6)%12)*30);
+}
+
 @keyframes timeAnimation
 {
 
 	100%
 	{
-
-		transform: rotate(540deg)
+		transform: rotate(540deg);
 	}
 }
 
-@mixin timeTrigger($time_for, $transform-origin)
+
+
+@mixin createAnimations($name)
 {
-	transform-origin: $transform-origin;
-	animation: timeAnimation $time_for infinite steps(60);
+	@keyframes #{$name}
+	{
+		100%
+		{
+			@content;
+		}
+	}
 }
+
+@mixin timeTrigger($time_for, $transform-origin, $name:seconde)
+{
+	$position: map-get($setting_needle, $name);
+	$angle_to_one_turn: (360 + getAngle($position)) + deg;
+	$angle_of_the_start: getAngle($position) + deg;
+	@debug getAngle($position);
+	@include createAnimations(#{$name})
+	{
+		transform: rotateZ($angle_to_one_turn);
+	}
+	transform-origin: $transform-origin;
+	transform: rotateZ(#{getAngle($position) + deg});
+	animation: #{$name} $time_for infinite steps(60);
+}
+

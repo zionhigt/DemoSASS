@@ -5,7 +5,6 @@
 	position: absolute;
 	background-color: #000;
 	border-radius: 30px;
-	transform: rotate(180deg);
 
 }
 
@@ -20,7 +19,7 @@
 		width: 2px;
 		height: 150px;
 		margin: 120px 151px 0 151px;
-		@include timeTrigger($time_for_second_get_one_turn, 1px 35px)
+		@include timeTrigger($time_for_second_get_one_turn, 1px 35px, "seconde");
 	}
 
 	&minute
@@ -29,7 +28,7 @@
 		height: 120px;
 		margin: 154px 147px 0 147px;
 		z-index: 2;
-		@include timeTrigger($time_for_minute_get_one_turn, center top);
+		@include timeTrigger($time_for_minute_get_one_turn, center top, "minute");
 		@include fluo();
 	}
 
@@ -39,7 +38,7 @@
 		height: 70px;
 		margin: 154px 147px 0 147px;
 		z-index: 1;
-		@include timeTrigger($time_for_hour_get_one_turn, center top);
+		@include timeTrigger($time_for_hour_get_one_turn, center top, "hour");
 		@include fluo();
 
 	}

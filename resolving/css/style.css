@@ -75,7 +75,6 @@ body {
   position: absolute;
   background-color: #000;
   border-radius: 30px;
-  transform: rotate(180deg);
 }
 
 .clock__needle--second {
@@ -83,7 +82,13 @@ body {
   height: 150px;
   margin: 120px 151px 0 151px;
   transform-origin: 1px 35px;
-  animation: timeAnimation 60s infinite steps(60);
+  transform: rotateZ(180deg);
+  animation: seconde 60s infinite steps(60);
+}
+@keyframes seconde {
+  100% {
+    transform: rotateZ(540deg);
+  }
 }
 .clock__needle--minute {
   width: 8px;
@@ -91,7 +96,13 @@ body {
   margin: 154px 147px 0 147px;
   z-index: 2;
   transform-origin: center top;
-  animation: timeAnimation 3600s infinite steps(60);
+  transform: rotateZ(180deg);
+  animation: minute 3600s infinite steps(60);
+}
+@keyframes minute {
+  100% {
+    transform: rotateZ(540deg);
+  }
 }
 .clock__needle--minute::after {
   content: "";
@@ -110,7 +121,13 @@ body {
   margin: 154px 147px 0 147px;
   z-index: 1;
   transform-origin: center top;
-  animation: timeAnimation 43200s infinite steps(60);
+  transform: rotateZ(90deg);
+  animation: hour 43200s infinite steps(60);
+}
+@keyframes hour {
+  100% {
+    transform: rotateZ(450deg);
+  }
 }
 .clock__needle--hour::after {
   content: "";
