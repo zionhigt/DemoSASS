@@ -1,0 +1,15 @@
+@keyframes timeAnimation
+{
+
+	100%
+	{
+
+		transform: rotate(540deg)
+	}
+}
+
+@mixin timeTrigger($time_for, $transform-origin)
+{
+	transform-origin: $transform-origin;
+	animation: timeAnimation $time_for infinite steps(60);
+}

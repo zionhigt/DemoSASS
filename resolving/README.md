@@ -4,4 +4,4 @@ pour une bonne compréhention de sass et de scss
 
 Les buts:
  - Décomposer le projet et organiser les éléments.
- - Améliorer le maintien du code avec l'ajout d'une aiguille de reveil comme exemple.
+ - Améliorer le maintien du code avec l'ajout d'une fonction de choix de l'heure comme exemple.
