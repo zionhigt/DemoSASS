@@ -1,107 +1,141 @@
-@keyframes secondAnimation
-{
-
-	100%
-	{
-
-		transform: rotate(540deg);
-	}
+@keyframes timeAnimation {
+  100% {
+    transform: rotate(540deg);
+  }
+}
+* {
+  box-sizing: border-box;
 }
 
-*
-{
-	box-sizing: border-box;
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-body
-{
-	position: relative;
+.canvas {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: auto;
+  margin: 15% auto auto 15%;
+  background-color: #e0e0e0;
+  border-radius: 50%;
 }
-.canvas
-{
-	position: absolute;
-	width: 400px;
-	height: 400px;
-	left: 40%;
-	top: 50%;
-	margin: auto;
-	background-color: #f2f2f2;
+.canvas::before, .canvas::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 50px;
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  top: -30px;
+  background-color: #e0e0e0;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.15);
 }
-
-.clock
-{
-	position: absolute;
-	width: 300px;
-	height: 300px;
-	margin: 50px;
-	border-radius: 50%;
-	background: no-repeat center/90% url('../images/ios_clock.svg'), #fff;
-	box-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.25);
+.canvas::before {
+  transform: rotateZ(-30deg);
+  left: -10px;
 }
-
-.clock::after
-{
-	display: block;
-	content: "";
-	position: absolute;
-	background-color: #000;
-	border-radius: 50%;
-	width: 20px;
-	height: 20px;
-	margin: 143px 140px ;
-	box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.6);
-	border: 1px ridge #cacaca;
+.canvas::after {
+  transform: rotateZ(30deg);
+  right: -10px;
 }
 
-[class^= clock__needle--]
-{
-	position: absolute;
-	background-color: #000;
-	border-radius: 30px;
-	transform: rotate(180deg);
-
-}
-.clock__needle--second
-{
-	width: 2px;
-	height: 150px;
-	margin: 120px 151px 0 151px;
-	transform-origin:1px 35px;
-	animation: secondAnimation 60s infinite steps(60);
-
+.clock {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+  border-radius: 50%;
+  background: no-repeat center/90% url("../images/ios_clock.svg"), #fff;
+  box-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.25);
 }
 
-.clock__needle--minute
-{
-	width: 8px;
-	height: 120px;
-	margin: 154px 147px 0 147px;
-	transform-origin:center top;
-	animation: secondAnimation 3600s infinite steps(60);
-	z-index: 2;
-
+.clock::after {
+  display: block;
+  content: "";
+  position: absolute;
+  background-color: #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 143px 140px;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.6);
+  border: 1px ridge #cacaca;
 }
 
-.clock__needle--hour
-{
-	width: 8px;
-	height: 70px;
-	margin: 154px 147px 0 147px;
-	transform-origin:center top;
-	animation: secondAnimation 43200s infinite steps(60);
-	z-index: 1;
-
+[class^=clock__needle--] {
+  position: absolute;
+  background-color: #000;
+  border-radius: 30px;
+  transform: rotate(180deg);
 }
 
-.clock__needle--minute::after, .clock__needle--hour::after
-{
-	content: "";
-	display: block;
-	position: relative;
-	background-color: #cacaca;
-	width: 40%;
-	height: 30%;
-	top: 65%;
-	margin-left: 30%;
-	border-radius: 30px;
+.clock__needle--second {
+  width: 2px;
+  height: 150px;
+  margin: 120px 151px 0 151px;
+  transform-origin: 1px 35px;
+  animation: timeAnimation 60s infinite steps(60);
 }
+.clock__needle--minute {
+  width: 8px;
+  height: 120px;
+  margin: 154px 147px 0 147px;
+  z-index: 2;
+  transform-origin: center top;
+  animation: timeAnimation 3600s infinite steps(60);
+}
+.clock__needle--minute::after {
+  content: "";
+  display: block;
+  position: relative;
+  background-color: #cacaca;
+  width: 40%;
+  height: 30%;
+  top: 65%;
+  margin-left: 30%;
+  border-radius: 30px;
+}
+.clock__needle--hour {
+  width: 8px;
+  height: 70px;
+  margin: 154px 147px 0 147px;
+  z-index: 1;
+  transform-origin: center top;
+  animation: timeAnimation 43200s infinite steps(60);
+}
+.clock__needle--hour::after {
+  content: "";
+  display: block;
+  position: relative;
+  background-color: #cacaca;
+  width: 40%;
+  height: 30%;
+  top: 65%;
+  margin-left: 30%;
+  border-radius: 30px;
+}
+.clock__needle--awake {
+  width: 8px;
+  height: 70px;
+  margin: 154px 147px 0 147px;
+  background-color: orange;
+  transform-origin: center top;
+  transform: rotateZ(210deg);
+}
+.clock__needle--awake::after {
+  content: "";
+  display: block;
+  position: relative;
+  background-color: #cacaca;
+  width: 40%;
+  height: 30%;
+  top: 65%;
+  margin-left: 30%;
+  border-radius: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */

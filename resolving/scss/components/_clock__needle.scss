@@ -43,4 +43,16 @@
 		@include fluo();
 
 	}
+
+	&awake
+	{
+		width: 8px;
+		height: 70px;
+		margin: 154px 147px 0 147px;
+		background-color: orange;
+		@include fluo();
+		transform-origin: center top;
+		transform: rotateZ(210deg);
+
+	}
 }
